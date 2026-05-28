@@ -1,6 +1,6 @@
 # Halo, saya Rizq Wijaya 👋
 
-Selamat datang di GitHub saya. Repository ini berisi **portfolio website pribadi** saya — dibangun dengan React 18, Vite, dan Three.js untuk efek 3D interaktif.
+Selamat datang di GitHub saya. Repository ini berisi **portfolio website pribadi** saya, dibangun dengan React 18, Vite, dan Three.js untuk efek 3D interaktif.
 
 ## Tentang Saya
 
