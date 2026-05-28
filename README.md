@@ -6,7 +6,7 @@ Selamat datang di GitHub saya. Repository ini berisi **portfolio website pribadi
 
 Seorang vibe coder dengan minat pada UI yang clean, performa yang ringan, dan detail interaksi.
 
-## Apa yang Ada di Sini
+## Section
 
 - **Hero & About** — perkenalan singkat siapa saya
 - **Services & Skills** — apa saja yang bisa saya bantu kerjakan
