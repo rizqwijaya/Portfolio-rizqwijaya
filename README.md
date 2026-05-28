@@ -12,7 +12,6 @@ Seorang vibe coder dengan minat pada UI yang clean, performa yang ringan, dan de
 - **Services & Skills** — apa saja yang bisa saya bantu kerjakan
 - **Work** — proyek-proyek yang pernah saya bangun
 - **Testimonials & Contact** — feedback klien dan cara menghubungi saya
-- **Tweaks Panel** — pengunjung bisa ganti palet warna, tema gelap/terang, dan kursor sendiri
 
 ## Tech Stack
 
