@@ -1,10 +1,9 @@
 import { useReveal } from "../hooks.js";
-import MagneticButton from "./MagneticButton.jsx";
 import WorkArt from "./WorkArt.jsx";
 
 export default function Work(props) {
   const onOpen = props.onOpen;
-  const ref = useReveal();
+  const ref = useReveal({ repeat: true });
   const projects = [
     {
       id: "sap-migration",
@@ -65,39 +64,25 @@ export default function Work(props) {
   ];
   return (
     <section id="work" className="section">
-      <div ref={ref} className="reveal">
+      <div ref={ref} className="reveal reveal-anim">
         <div className="work-head">
           <div>
-            <div className="section-label">
+            <div className="section-label anim-left" style={{ "--d": "60ms" }}>
               <span className="section-num">03</span> Selected Work
             </div>
-            <h2 className="work-title">
+            <h2 className="work-title anim-left" style={{ "--d": "220ms" }}>
               Things I've <span className="italic-accent">shipped.</span>
             </h2>
           </div>
-          <MagneticButton strength={0.2}>
-            <a
-              href="#contact"
-              className="btn ghost"
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .getElementById("contact")
-                  .scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              Full Archive <span className="btn-arrow">↗</span>
-            </a>
-          </MagneticButton>
         </div>
-      </div>
-      <div className="work-grid">
-        {projects.map((p) => (
-          <button
-            key={p.id}
-            className={"work-card " + p.size}
-            onClick={() => onOpen(p)}
-          >
+        <div className="work-grid">
+          {projects.map((p, i) => (
+            <button
+              key={p.id}
+              className={"work-card anim-up " + p.size}
+              style={{ "--d": 320 + i * 200 + "ms" }}
+              onClick={() => onOpen(p)}
+            >
             <div className="work-art">
               {p.cover ? (
                 <img className="work-art-cover" src={p.cover} alt={p.name} />
@@ -132,6 +117,7 @@ export default function Work(props) {
             </div>
           </button>
         ))}
+        </div>
       </div>
     </section>
   );

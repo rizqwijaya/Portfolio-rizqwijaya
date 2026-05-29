@@ -13,6 +13,7 @@ import ProjectModal from "./components/ProjectModal.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -29,7 +30,7 @@ export default function App() {
       {loading && <Loader onDone={() => setLoading(false)} />}
       <div className={"app" + (!loading ? " ready" : "")}>
         <Header theme={theme} setTheme={setTheme} />
-        <Hero />
+        <Hero loading={loading} />
         <Marquee />
         <About />
         <Services />
@@ -41,6 +42,7 @@ export default function App() {
           project={project}
           onClose={() => setProject(null)}
         />
+        <ScrollToTop />
       </div>
     </Fragment>
   );

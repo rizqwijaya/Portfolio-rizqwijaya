@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useReveal } from "../hooks.js";
 import MagneticButton from "./MagneticButton.jsx";
 import SkillPanel from "./SkillPanel.jsx";
 
@@ -14,7 +15,8 @@ const ERASE_MS = 32; // delay between erasing each character
 const HOLD_MS = 2000; // pause once the full phrase is typed
 const GAP_MS = 350; // pause after erase, before the next phrase
 
-export default function Hero() {
+export default function Hero(props) {
+  const revealRef = useReveal({ repeat: true, enabled: !props.loading });
   const scrollTo = (e, id) => {
     e.preventDefault();
     const el = document.getElementById(id);
@@ -54,25 +56,26 @@ export default function Hero() {
   const shown = HEADLINES[idx].slice(0, count);
   return (
     <section id="home" className="section hero">
-      <div className="hero-tag">
+      <div ref={revealRef} className="reveal reveal-anim">
+      <div className="hero-tag anim-left" style={{ "--d": "60ms" }}>
         <span className="hero-tag-dot" />
         Based in Jakarta, Indonesia · Open for Work
       </div>
       <div className="hero-grid">
         <div className="hero-left">
-          <h1 className="hero-title hero-title-rotator">
+          <h1 className="hero-title hero-title-rotator anim-left" style={{ "--d": "220ms" }}>
             <span className="hero-type-line" aria-label={HEADLINES[idx]}>
               <span className="hero-type-text" aria-hidden="true">
                 {shown}
               </span>
             </span>
           </h1>
-          <p className="hero-sub">
+          <p className="hero-sub anim-left" style={{ "--d": "380ms" }}>
             I'm <strong>Rizq Wijaya</strong>. By day, I keep enterprise systems
             running as an SAP Basis consultant. By craft, I edit videos that move
             people and design interfaces that just feel right.
           </p>
-          <div className="hero-actions">
+          <div className="hero-actions anim-up" style={{ "--d": "540ms" }}>
             <MagneticButton strength={0.2}>
               <a
                 href="#work"
@@ -92,10 +95,51 @@ export default function Hero() {
               </a>
             </MagneticButton>
           </div>
+          <div className="hero-socials anim-up" style={{ "--d": "700ms" }} aria-label="Social links">
+            <a
+              href="https://github.com/rizqwijaya"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-social"
+              aria-label="GitHub Profile"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rizqwijaya/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-social"
+              aria-label="LinkedIn Profile"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a
+              href="https://instagram.com/rizq.wijaya"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-social"
+              aria-label="Instagram Profile"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+            </a>
+          </div>
         </div>
-        <div className="hero-right">
+        <div className="hero-right anim-right" style={{ "--d": "320ms" }}>
           <SkillPanel />
         </div>
+      </div>
       </div>
     </section>
   );

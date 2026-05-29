@@ -1,7 +1,7 @@
 import { useReveal } from "../hooks.js";
 
 export default function Services() {
-  const ref = useReveal();
+  const ref = useReveal({ repeat: true });
   const services = [
     {
       num: "01",
@@ -34,24 +34,25 @@ export default function Services() {
   ];
   return (
     <section id="services" className="section">
-      <div ref={ref} className="reveal services-head">
-        <div>
-          <div className="section-label">
-            <span className="section-num">02</span> What I Do
+      <div ref={ref} className="reveal reveal-anim">
+        <div className="services-head">
+          <div>
+            <div className="section-label anim-left" style={{ "--d": "60ms" }}>
+              <span className="section-num">02</span> What I Do
+            </div>
+            <h2 className="services-title anim-left" style={{ "--d": "220ms" }}>
+              Services &amp; <span className="italic-accent">capabilities.</span>
+            </h2>
           </div>
-          <h2 className="services-title">
-            Services &amp; <span className="italic-accent">capabilities.</span>
-          </h2>
         </div>
-      </div>
-      <div className="services-grid">
-        {services.map((s, i) => (
-          <div
-            key={s.num}
-            className="service-card"
-            data-hover={true}
-            style={{ transitionDelay: i * 0.06 + "s" }}
-          >
+        <div className="services-grid">
+          {services.map((s, i) => (
+            <div
+              key={s.num}
+              className="service-card anim-up"
+              data-hover={true}
+              style={{ "--d": 380 + i * 140 + "ms" }}
+            >
             <div className="service-card-num">{s.num}</div>
             <div className="service-card-icon">
               <span>{s.icon}</span>
@@ -67,6 +68,7 @@ export default function Services() {
             </div>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );

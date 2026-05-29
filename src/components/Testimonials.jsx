@@ -1,7 +1,7 @@
 import { useReveal } from "../hooks.js";
 
 export default function Testimonials() {
-  const ref = useReveal();
+  const ref = useReveal({ repeat: true });
   const items = [
     {
       text: "Wijaya is a detailed talent, hardworking and has qualified skills. He is also very responsible for the tasks he receives. He is very good at editing videos, creating motion graphics, creating attractive User Interface designs.",
@@ -25,29 +25,29 @@ export default function Testimonials() {
   return (
     <section className="testimonials">
       <div className="testimonials-inner">
-        <div ref={ref} className="reveal">
-          <div className="section-label">
+        <div ref={ref} className="reveal reveal-anim">
+          <div className="section-label anim-left" style={{ "--d": "60ms" }}>
             <span className="section-num">04</span> Voices
           </div>
-          <h2 style={{ fontSize: "clamp(30px, 4vw, 54px)" }}>
+          <h2 className="anim-left" style={{ fontSize: "clamp(30px, 4vw, 54px)", "--d": "220ms" }}>
             Kind words from{" "}
             <span className="italic-accent">good people.</span>
           </h2>
-        </div>
-        <div className="testimonial-grid">
-          {items.map((t, i) => (
-            <div key={i} className="testimonial">
-              <div className="testimonial-quote-mark">”</div>
-              <div className="testimonial-text">{t.text}</div>
-              <div className="testimonial-foot">
-                <div className="testimonial-avatar">{t.initial}</div>
-                <div>
-                  <div className="testimonial-name">{t.name}</div>
-                  <div className="testimonial-role">{t.role}</div>
+          <div className="testimonial-grid">
+            {items.map((t, i) => (
+              <div key={i} className="testimonial anim-up" style={{ "--d": 380 + i * 140 + "ms" }}>
+                <div className="testimonial-quote-mark">”</div>
+                <div className="testimonial-text">{t.text}</div>
+                <div className="testimonial-foot">
+                  <div className="testimonial-avatar">{t.initial}</div>
+                  <div>
+                    <div className="testimonial-name">{t.name}</div>
+                    <div className="testimonial-role">{t.role}</div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

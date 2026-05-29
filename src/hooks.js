@@ -1,18 +1,56 @@
 import { useState, useEffect, useRef } from "react";
 
+/* Global scroll-direction tracker (down vs up) */
+let scrollDir = "down";
+let lastScrollY = typeof window !== "undefined" ? window.scrollY : 0;
+if (typeof window !== "undefined") {
+  window.addEventListener(
+    "scroll",
+    () => {
+      const y = window.scrollY;
+      if (y > lastScrollY) scrollDir = "down";
+      else if (y < lastScrollY) scrollDir = "up";
+      lastScrollY = y;
+    },
+    { passive: true }
+  );
+}
+
 /* IntersectionObserver reveal-on-scroll */
 export function useReveal(opts) {
   opts = opts || {};
+  const repeat = opts.repeat === true;
+  const enabled = opts.enabled !== false;
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || !enabled) return;
+    let pending = 0;
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            el.classList.add("in");
-            io.unobserve(el);
+            if (repeat) {
+              if (scrollDir === "down") {
+                cancelAnimationFrame(pending);
+                el.classList.remove("in");
+                void el.offsetWidth;
+                pending = requestAnimationFrame(() => {
+                  pending = requestAnimationFrame(() => el.classList.add("in"));
+                });
+              } else {
+                cancelAnimationFrame(pending);
+                el.classList.add("instant");
+                el.classList.add("in");
+              }
+            } else {
+              el.classList.add("in");
+              io.unobserve(el);
+            }
+          } else if (repeat) {
+            cancelAnimationFrame(pending);
+            el.classList.remove("in");
+            el.classList.remove("instant");
           }
         });
       },
@@ -22,8 +60,11 @@ export function useReveal(opts) {
       }
     );
     io.observe(el);
-    return () => io.disconnect();
-  }, []);
+    return () => {
+      cancelAnimationFrame(pending);
+      io.disconnect();
+    };
+  }, [repeat, enabled]);
   return ref;
 }
 
