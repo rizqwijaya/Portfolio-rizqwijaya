@@ -1,5 +1,4 @@
 import { useState, useEffect, Fragment } from "react";
-import { useTheme } from "./hooks.js";
 import { PALETTES, applyPalette } from "./palette.js";
 import CustomCursor from "./components/CustomCursor.jsx";
 import Loader from "./components/Loader.jsx";
@@ -17,10 +16,10 @@ import ScrollToTop from "./components/ScrollToTop.jsx";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  const [theme, setTheme] = useTheme();
   const [project, setProject] = useState(null);
 
   useEffect(() => {
+    document.documentElement.dataset.theme = "dark";
     applyPalette(PALETTES[0]);
   }, []);
 
@@ -29,7 +28,7 @@ export default function App() {
       <CustomCursor enabled={true} />
       {loading && <Loader onDone={() => setLoading(false)} />}
       <div className={"app" + (!loading ? " ready" : "")}>
-        <Header theme={theme} setTheme={setTheme} />
+        <Header />
         <Hero loading={loading} />
         <Marquee />
         <About />
