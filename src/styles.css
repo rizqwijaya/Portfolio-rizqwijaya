@@ -1693,14 +1693,35 @@ h1, h2, h3, h4 {
   top: 20px; left: 20px;
   font-family: var(--mono);
   font-size: 10px;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  padding: 6px 12px;
-  background: color-mix(in oklch, var(--bg) 70%, transparent);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--line);
+  padding: 7px 14px;
+  color: color-mix(in oklch, var(--fg) 85%, transparent);
+  background: color-mix(in oklch, var(--bg-2) 88%, transparent);
+  border: 1px solid color-mix(in oklch, var(--fg) 14%, transparent);
   border-radius: 999px;
+  box-shadow:
+    0 4px 16px color-mix(in oklch, var(--bg) 60%, transparent),
+    inset 0 1px 0 color-mix(in oklch, var(--fg) 10%, transparent);
   z-index: 2;
+  will-change: transform, opacity;
+}
+.work-card:hover .work-tag-top {
+  transition: background 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.work-card:hover .work-tag-top {
+  background: color-mix(in oklch, var(--accent) 85%, var(--bg));
+  border-color: color-mix(in oklch, var(--accent) 70%, transparent);
+  color: oklch(0.98 0.005 280);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px color-mix(in oklch, var(--accent) 40%, transparent),
+    inset 0 1px 0 color-mix(in oklch, var(--fg) 25%, transparent);
 }
 
 /* Work art styles */
