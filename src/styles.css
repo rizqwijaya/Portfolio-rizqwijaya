@@ -678,7 +678,7 @@ h1, h2, h3, h4 {
   margin-right: auto;
   margin-left: -64px;
   /* cancel the left-column shift so the panel stays at its original height */
-  margin-top: calc(var(--hero-shift) * -1);
+  margin-top: calc(var(--hero-shift) * -1 + 64px);
 }
 .hero-title {
   font-size: clamp(48px, 7vw, 116px);
