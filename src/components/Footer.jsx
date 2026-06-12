@@ -1,12 +1,29 @@
 export default function Footer() {
+  const scrollTo = (e, id) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <footer className="footer">
-      <div className="footer-big">
+      <div className="footer-kicker">Have an idea, on-chain or on SAP?</div>
+      <a
+        className="footer-big"
+        href="#contact"
+        onClick={(e) => scrollTo(e, "contact")}
+      >
         Let's <span className="italic-accent">build.</span>
-      </div>
+        <span className="footer-big-arrow" aria-hidden="true">
+          →
+        </span>
+      </a>
       <div className="footer-row">
         <div>© 2026 Rizq Wijaya. All rights reserved.</div>
-        <div>v1.0 · Portfolio</div>
+        <div className="footer-status">
+          <span className="footer-status-dot" aria-hidden="true" />
+          Open for Web3 &amp; SAP work
+        </div>
+        <div>Jakarta, Indonesia · v2.0</div>
       </div>
     </footer>
   );
