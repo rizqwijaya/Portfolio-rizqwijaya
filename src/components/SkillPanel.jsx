@@ -99,7 +99,7 @@ export default function SkillPanel() {
   }, []);
 
   const skills = [
-    { icon: "⛓️", name: "Blockchain Dev", pct: 92 },
+    { icon: "🧊", name: "Blockchain Dev", pct: 92 },
     { icon: "📜", name: "Smart Contracts", pct: 90 },
     { icon: "🌐", name: "Web3 Dev", pct: 88 },
     { icon: "🖥️", name: "SAP Basis", pct: 95 },

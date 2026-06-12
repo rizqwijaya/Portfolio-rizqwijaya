@@ -28,7 +28,7 @@ export default function Services() {
   const services = [
     {
       num: "01",
-      icon: "⛓️",
+      icon: "🧊",
       name: "Blockchain Development",
       desc: "Designing and building blockchain solutions end to end: network architecture, token standards, DeFi protocols, and integrations across EVM-compatible chains and Layer 2s.",
       tags: ["EVM", "Layer 2", "DeFi", "Tokenomics"],
