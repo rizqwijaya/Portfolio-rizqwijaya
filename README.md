@@ -8,10 +8,10 @@ Seorang vibe coder dengan minat pada UI yang clean, performa yang ringan, dan de
 
 ## Section
 
-- **Hero & About** — perkenalan singkat siapa saya
-- **Services & Skills** — apa saja yang bisa saya bantu kerjakan
-- **Work** — proyek-proyek yang pernah saya bangun
-- **Testimonials & Contact** — feedback klien dan cara menghubungi saya
+- **Hero & About**: perkenalan singkat siapa saya
+- **Services & Skills**: apa saja yang bisa saya bantu kerjakan
+- **Work**: proyek-proyek yang pernah saya bangun
+- **Testimonials & Contact**: feedback klien dan cara menghubungi saya
 
 ## Tech Stack
 

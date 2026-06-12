@@ -74,18 +74,32 @@ export default function ProjectModal(props) {
                   <div className="modal-meta-item-label">Year</div>
                   <div className="modal-meta-item-val">{project.year}</div>
                 </div>
-                <div>
-                  <div className="modal-meta-item-label">Duration</div>
-                  <div className="modal-meta-item-val">
-                    {project.duration}
+                {project.duration && (
+                  <div>
+                    <div className="modal-meta-item-label">Duration</div>
+                    <div className="modal-meta-item-val">
+                      {project.duration}
+                    </div>
                   </div>
-                </div>
+                )}
                 <div style={{ gridColumn: "1 / -1" }}>
                   <div className="modal-meta-item-label">Tools</div>
                   <div className="modal-meta-item-val">{project.tools}</div>
                 </div>
               </div>
               <div className="modal-actions">
+                {project.link && (
+                  <MagneticButton strength={0.2}>
+                    <a
+                      className="btn ghost"
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View live site <span className="btn-arrow">↗</span>
+                    </a>
+                  </MagneticButton>
+                )}
                 <MagneticButton strength={0.2}>
                   <a
                     className="btn primary"

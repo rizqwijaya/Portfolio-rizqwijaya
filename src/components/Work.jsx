@@ -6,6 +6,36 @@ export default function Work(props) {
   const ref = useReveal({ repeat: true });
   const projects = [
     {
+      id: "equinoxfi",
+      name: "EquinoxFi - DeFi Swap, Staking & Sell Platform",
+      cat: "Web3 · DeFi · 2026",
+      tag: "Web3 DeFi",
+      yr: "2026",
+      art: "defi",
+      cover: "/assets/EquinoxFi.jpg",
+      size: "large",
+      link: "https://equinoxfi.vercel.app/",
+      desc: "Swap easily, stake instantly. A decentralized exchange where users swap tokens, provide liquidity to pools, stake for yield, and track holdings in a portfolio view. Wallet onboarding via RainbowKit, on-chain interactions through Wagmi and Viem, with Uniswap-style AMM flows powered by Solidity smart contracts.",
+      year: "2026",
+      tools: "React · Solidity · Wagmi · Viem · RainbowKit · Uniswap",
+      tags: ["Token Swap", "Staking", "Liquidity Pools", "Smart Contracts"],
+    },
+    {
+      id: "zenithdao",
+      name: "ZenithDAO - On-chain DAO Governance",
+      cat: "Web3 · DAO Governance · 2026",
+      tag: "Web3 DAO",
+      yr: "2026",
+      art: "dao",
+      cover: "/assets/ZenithDAO.jpg",
+      size: "med-r",
+      link: "https://zenithdao.vercel.app/",
+      desc: "Govern the treasury, without limits. An on-chain DAO governance platform on Ethereum Sepolia where $ZNTH holders propose, vote, delegate, and execute treasury decisions trustlessly, enforced entirely by smart contracts. Includes a live treasury dashboard, proposal lifecycle tracking, vote delegation, and a test-token faucet.",
+      year: "2026",
+      tools: "React · Solidity · Wagmi · Viem · RainbowKit · Ethereum Sepolia",
+      tags: ["DAO Governance", "On-chain Voting", "Vote Delegation", "Treasury"],
+    },
+    {
       id: "sap-migration",
       name: "BRIFIRST - SAP Basis Operations & Administration",
       cat: "SAP Basis · 2023–2024",
@@ -106,7 +136,7 @@ export default function Work(props) {
         </div>
         <a
           className="work-banner anim-up"
-          style={{ "--d": "720ms" }}
+          style={{ "--d": "1120ms" }}
           href="https://github.com/rizqwijaya"
           target="_blank"
           rel="noopener noreferrer"

@@ -118,6 +118,57 @@ export default function WorkArt(props) {
       </div>
     );
   }
+  if (kind === "defi") {
+    return (
+      <div className="art-svg">
+        <svg
+          viewBox="0 0 200 120"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+        >
+          <circle cx="65" cy="60" r="28" />
+          <circle cx="135" cy="60" r="28" />
+          <path d="M 65 42 L 77 60 L 65 78 L 53 60 Z" />
+          <line x1="53" y1="60" x2="77" y2="60" opacity="0.6" />
+          <line x1="125" y1="52" x2="145" y2="52" />
+          <line x1="125" y1="60" x2="145" y2="60" />
+          <line x1="125" y1="68" x2="145" y2="68" />
+          <path d="M 88 22 Q 100 12, 112 22" />
+          <polyline points="108,16 112,22 106,24" fill="none" />
+          <path d="M 112 98 Q 100 108, 88 98" />
+          <polyline points="92,104 88,98 94,96" fill="none" />
+        </svg>
+      </div>
+    );
+  }
+  if (kind === "dao") {
+    return (
+      <div className="art-svg">
+        <svg
+          viewBox="0 0 200 120"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+        >
+          <circle cx="100" cy="60" r="18" />
+          <polyline points="93,60 98,66 108,54" strokeWidth="1.5" />
+          <circle cx="40" cy="28" r="8" />
+          <circle cx="160" cy="28" r="8" />
+          <circle cx="40" cy="92" r="8" />
+          <circle cx="160" cy="92" r="8" />
+          <circle cx="100" cy="14" r="6" />
+          <line x1="46" y1="33" x2="86" y2="52" />
+          <line x1="154" y1="33" x2="114" y2="52" />
+          <line x1="46" y1="87" x2="86" y2="68" />
+          <line x1="154" y1="87" x2="114" y2="68" />
+          <line x1="100" y1="20" x2="100" y2="42" />
+          <circle cx="40" cy="28" r="2.5" fill="currentColor" stroke="none" />
+          <circle cx="160" cy="92" r="2.5" fill="currentColor" stroke="none" />
+        </svg>
+      </div>
+    );
+  }
   if (kind === "motion") {
     return (
       <div className="art-svg">
