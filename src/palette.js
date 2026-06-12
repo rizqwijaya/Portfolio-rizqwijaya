@@ -1,9 +1,9 @@
 export const PALETTES = [
-  ["#9D7AE8", "#5EE6E0"],
-  ["#7AB5E8", "#9D7AE8"],
+  ["#60A5FA", "#5EE6E0"],
+  ["#7AB5E8", "#60A5FA"],
   ["#5EE6A5", "#7AB5E8"],
   ["#E89766", "#D67A8E"],
-  ["#FF8FA3", "#9D7AE8"],
+  ["#FF8FA3", "#60A5FA"],
   ["#FFB347", "#FF6B9D"],
 ];
 

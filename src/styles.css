@@ -1,16 +1,16 @@
 /* ===== Theme tokens ===== */
 :root {
-  --bg: oklch(0.09 0.035 285);
-  --bg-2: oklch(0.14 0.04 285);
-  --bg-3: oklch(0.19 0.045 285);
-  --line: oklch(0.3 0.05 285);
-  --line-strong: oklch(0.4 0.055 285);
-  --fg: oklch(0.96 0.012 280);
-  --fg-muted: oklch(0.72 0.025 280);
-  --fg-dim: oklch(0.52 0.03 280);
-  --accent: oklch(0.72 0.17 295);        /* violet */
+  --bg: oklch(0.09 0.035 262);
+  --bg-2: oklch(0.14 0.04 262);
+  --bg-3: oklch(0.19 0.045 262);
+  --line: oklch(0.3 0.05 262);
+  --line-strong: oklch(0.4 0.055 262);
+  --fg: oklch(0.96 0.012 258);
+  --fg-muted: oklch(0.72 0.025 258);
+  --fg-dim: oklch(0.52 0.03 258);
+  --accent: oklch(0.71 0.15 252);        /* blue */
   --accent-2: oklch(0.82 0.14 195);      /* cyan/teal */
-  --accent-soft: oklch(0.72 0.17 295 / 0.15);
+  --accent-soft: oklch(0.71 0.15 252 / 0.15);
   --grad: linear-gradient(95deg, var(--accent) 0%, var(--accent-2) 100%);
   --grad-soft: linear-gradient(95deg, color-mix(in oklch, var(--accent) 25%, transparent) 0%, color-mix(in oklch, var(--accent-2) 25%, transparent) 100%);
   --shadow-1: 0 8px 32px oklch(0 0 0 / 0.35);
@@ -31,9 +31,9 @@
   --fg: oklch(0.16 0.025 270);
   --fg-muted: oklch(0.4 0.025 270);
   --fg-dim: oklch(0.55 0.02 270);
-  --accent: oklch(0.58 0.2 295);
+  --accent: oklch(0.55 0.18 252);
   --accent-2: oklch(0.65 0.15 195);
-  --accent-soft: oklch(0.58 0.2 295 / 0.14);
+  --accent-soft: oklch(0.55 0.18 252 / 0.14);
   --grad: linear-gradient(95deg, var(--accent) 0%, var(--accent-2) 100%);
   --grad-soft: linear-gradient(95deg, color-mix(in oklch, var(--accent) 25%, transparent) 0%, color-mix(in oklch, var(--accent-2) 25%, transparent) 100%);
 }

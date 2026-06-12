@@ -77,7 +77,7 @@ export default function CustomCursor(props) {
             '<linearGradient id="cur-holo" x1="10%" y1="0%" x2="90%" y2="100%">' +
             '<stop offset="0%" stop-color="#0ff0fc"/>' +
             '<stop offset="50%" stop-color="#2f7bff"/>' +
-            '<stop offset="100%" stop-color="#5a2bff"/>' +
+            '<stop offset="100%" stop-color="#2b5aff"/>' +
             "</linearGradient>" +
             "</defs>" +
             '<path d="M22 8 L78 64 L46 66 L34 92 Z" ' +
