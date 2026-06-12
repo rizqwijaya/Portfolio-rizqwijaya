@@ -1,6 +1,7 @@
 import { useState, useEffect, Fragment } from "react";
 import { PALETTES, applyPalette } from "./palette.js";
 import CustomCursor from "./components/CustomCursor.jsx";
+import SpaceBackground from "./components/SpaceBackground.jsx";
 import Loader from "./components/Loader.jsx";
 import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
@@ -25,6 +26,7 @@ export default function App() {
   return (
     <Fragment>
       <CustomCursor enabled={true} />
+      <SpaceBackground />
       {loading && <Loader onDone={() => setLoading(false)} />}
       <div className={"app" + (!loading ? " ready" : "")}>
         <Header />

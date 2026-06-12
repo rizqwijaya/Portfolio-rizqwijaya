@@ -455,8 +455,42 @@ body[data-cursor="on"] .loader2 * { cursor: none !important; }
 .app {
   opacity: 0;
   transition: opacity 0.5s ease;
+  position: relative;
+  z-index: 1;
 }
 .app.ready { opacity: 1; }
+
+/* ===== Space background ===== */
+.space-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.space-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.space-nebula {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(ellipse 42% 30% at 18% 22%, oklch(0.45 0.1 252 / 0.16), transparent 70%),
+    radial-gradient(ellipse 36% 28% at 82% 12%, oklch(0.5 0.09 210 / 0.12), transparent 70%),
+    radial-gradient(ellipse 46% 34% at 70% 78%, oklch(0.42 0.1 240 / 0.14), transparent 70%),
+    radial-gradient(ellipse 30% 24% at 28% 88%, oklch(0.55 0.08 195 / 0.1), transparent 70%);
+  animation: nebula-drift 90s ease-in-out infinite alternate;
+}
+@keyframes nebula-drift {
+  from { transform: translate3d(-2%, -1.5%, 0) scale(1); }
+  to { transform: translate3d(2%, 1.5%, 0) scale(1.06); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .space-nebula { animation: none; }
+}
 
 .nav {
   position: fixed;
@@ -1721,6 +1755,17 @@ h1, h2, h3, h4 {
   position: absolute; inset: 0;
   overflow: hidden;
 }
+/* Dark veil over the artwork on hover so revealed text never fights the cover image */
+.work-art::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: color-mix(in oklch, var(--bg) 96%, transparent);
+  opacity: 0;
+  transition: opacity .45s ease;
+  pointer-events: none;
+}
+.work-card:hover .work-art::after,
+.work-card:focus-visible .work-art::after { opacity: 1; }
 .work-art-fill {
   position: absolute; inset: 0;
   background: var(--bg-3);
@@ -1738,7 +1783,7 @@ h1, h2, h3, h4 {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+  transition: transform .8s cubic-bezier(.2,.7,.2,1), filter .45s ease;
 }
 .work-card:hover .work-art-cover { transform: scale(1.06); }
 .work-meta {
@@ -1807,22 +1852,14 @@ h1, h2, h3, h4 {
     inset 0 1px 0 color-mix(in oklch, var(--fg) 10%, transparent);
   z-index: 2;
   will-change: transform, opacity;
+  transition: opacity .3s ease, transform .3s ease;
 }
-.work-card:hover .work-tag-top {
-  transition: background 450ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 450ms cubic-bezier(0.22, 1, 0.36, 1),
-    color 450ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.work-card:hover .work-tag-top {
-  background: color-mix(in oklch, var(--accent) 85%, var(--bg));
-  border-color: color-mix(in oklch, var(--accent) 70%, transparent);
-  color: oklch(0.98 0.005 280);
-  transform: translateY(-2px);
-  box-shadow:
-    0 8px 24px color-mix(in oklch, var(--accent) 40%, transparent),
-    inset 0 1px 0 color-mix(in oklch, var(--fg) 25%, transparent);
+/* Top chips get out of the way on hover so the expanded meta never collides with them */
+.work-card:hover .work-tag-top,
+.work-card:focus-visible .work-tag-top {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
 }
 
 .work-year-chip {
@@ -1838,11 +1875,13 @@ h1, h2, h3, h4 {
   border: 1px solid color-mix(in oklch, var(--fg) 14%, transparent);
   border-radius: 999px;
   z-index: 2;
-  transition: color .3s ease, border-color .3s ease;
+  transition: opacity .3s ease, transform .3s ease;
 }
-.work-card:hover .work-year-chip {
-  color: var(--fg);
-  border-color: color-mix(in oklch, var(--accent) 50%, transparent);
+.work-card:hover .work-year-chip,
+.work-card:focus-visible .work-year-chip {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
 }
 
 .work-meta-main {
