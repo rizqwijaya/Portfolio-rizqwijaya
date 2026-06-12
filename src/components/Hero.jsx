@@ -4,10 +4,10 @@ import MagneticButton from "./MagneticButton.jsx";
 import SkillPanel from "./SkillPanel.jsx";
 
 const HEADLINES = [
+  "A Web3 Developer.",
+  "Blockchain Development.",
+  "Smart Contract Development.",
   "An SAP Basis Consultant.",
-  "User Management.",
-  "SAP Transport.",
-  "SAP System Installation.",
 ];
 
 const TYPE_MS = 65; // delay between typing each character
@@ -71,9 +71,9 @@ export default function Hero(props) {
             </span>
           </h1>
           <p className="hero-sub anim-left" style={{ "--d": "380ms" }}>
-            I'm <strong>Rizq Wijaya</strong>. By day, I keep enterprise systems
-            running as an SAP Basis consultant. By craft, I edit videos that move
-            people and design interfaces that just feel right.
+            I'm <strong>Rizq Wijaya</strong>. I build decentralized applications
+            and smart contracts that live on-chain, and keep enterprise systems
+            running as an SAP Basis consultant.
           </p>
           <div className="hero-actions anim-up" style={{ "--d": "540ms" }}>
             <MagneticButton strength={0.2}>

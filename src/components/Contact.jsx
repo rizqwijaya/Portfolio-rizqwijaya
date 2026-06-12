@@ -78,7 +78,7 @@ export default function Contact() {
       <div ref={ref} className="reveal reveal-anim contact-grid">
         <div className="contact-left">
           <div className="section-label anim-left" style={{ "--d": "60ms" }}>
-            <span className="section-num">05</span> Get In Touch
+            <span className="section-num">04</span> Get In Touch
           </div>
           <h2 className="contact-title anim-left" style={{ "--d": "220ms" }}>
             Have a project? <br />

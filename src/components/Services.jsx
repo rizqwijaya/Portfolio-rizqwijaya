@@ -5,31 +5,31 @@ export default function Services() {
   const services = [
     {
       num: "01",
+      icon: "⛓️",
+      name: "Blockchain Development",
+      desc: "Designing and building blockchain solutions end to end — network architecture, token standards, DeFi protocols, and integrations across EVM-compatible chains and Layer 2s.",
+      tags: ["EVM", "Layer 2", "DeFi", "Tokenomics"],
+    },
+    {
+      num: "02",
+      icon: "📜",
+      name: "Smart Contract Development",
+      desc: "Secure, gas-efficient smart contracts in Solidity — ERC-20, ERC-721, and ERC-1155 standards, with thorough testing, auditing practices, and deployment pipelines.",
+      tags: ["Solidity", "ERC-20", "NFT", "Security"],
+    },
+    {
+      num: "03",
+      icon: "🌐",
+      name: "Web3 Development",
+      desc: "Full-stack decentralized applications — wallet connections, on-chain reads and writes, and polished dApp frontends built with modern Web3 tooling.",
+      tags: ["dApps", "Ethers.js", "Wagmi", "IPFS"],
+    },
+    {
+      num: "04",
       icon: "🖥️",
       name: "SAP Basis Consulting",
       desc: "Installation, upgrade, migration, performance tuning, monitoring, and DR for SAP NetWeaver, S/4HANA, and HANA database landscapes.",
       tags: ["Install", "Migration", "HANA", "Tuning", "Monitoring"],
-    },
-    {
-      num: "02",
-      icon: "🎬",
-      name: "Video Editing",
-      desc: "Brand reels, talking-head edits, podcast video, and short-form social content with motion polish and clean sound design.",
-      tags: ["Reels", "Podcast", "Short-form", "Color"],
-    },
-    {
-      num: "03",
-      icon: "🎨",
-      name: "UI / UX Design",
-      desc: "End-to-end product design — flows, wireframes, hi-fi mockups, and clickable prototypes. Comfortable across web, mobile, and SaaS dashboards.",
-      tags: ["Flows", "Wireframe", "Hi-fi", "Prototype"],
-    },
-    {
-      num: "04",
-      icon: "💻",
-      name: "Vibe Coding",
-      desc: "Quick interactive prototypes, landing pages, internal tools, and motion-rich web experiences when you need something built fast and tasteful.",
-      tags: ["Prototype", "Landing", "Tools", "Web"],
     },
   ];
   return (

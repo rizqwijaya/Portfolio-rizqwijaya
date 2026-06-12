@@ -84,7 +84,7 @@ export default function Loader(props) {
         <div className="ls-logo-text">
           Rizq Wijaya<span className="ls-dot">.</span>
         </div>
-        <div className="ls-tagline">SAP Basis · Video Editor · UI/UX</div>
+        <div className="ls-tagline">Blockchain · Smart Contract · Web3 · SAP Basis</div>
       </div>
       <div className="ls-progress-wrap">
         <div className="ls-progress-track">

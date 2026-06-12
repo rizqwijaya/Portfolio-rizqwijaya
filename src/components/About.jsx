@@ -22,11 +22,11 @@ export default function About() {
               <span className="about-name anim-left" style={{ "--d": "380ms" }}>Rizq Wijaya</span>
             </h2>
             <p className="about-body anim-left" style={{ "--d": "540ms" }}>
-              I'm a <strong>tech and creative hybrid</strong>. By day, I ensure{" "}
+              I'm a <strong>Web3-focused engineer</strong>. By day, I ensure{" "}
               <strong>SAP enterprise systems</strong> are stable. By heart, I
-              craft digital experiences through{" "}
-              <strong>user-centered UI/UX design</strong> and{" "}
-              <strong>dynamic video editing</strong>.
+              build the decentralized web through{" "}
+              <strong>blockchain & smart contract development</strong> and{" "}
+              <strong>Web3 applications</strong>.
             </p>
             <div className="about-actions anim-up" style={{ marginTop: 24, "--d": "700ms" }}>
               <MagneticButton strength={0.2}>
