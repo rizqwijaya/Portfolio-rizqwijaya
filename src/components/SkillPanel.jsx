@@ -24,7 +24,7 @@ export default function SkillPanel() {
     // Animations API. The WAAP version had to cancel + restart on each
     // click, and when it ended it handed the transform back to the .active
     // CSS rule whose own `transition: transform` then re-animated from the
-    // last WAAP value — that double-animation was the visible "break" on
+    // last WAAP value, and that double-animation was the visible "break" on
     // the way back to rest. Here we own the transform inline (lift + scale
     // together, so it never fights the .active translateY) and just flip
     // the scale: the browser's transition engine blends from whatever the
@@ -44,7 +44,7 @@ export default function SkillPanel() {
       // scale to the dip, so a click mid-bounce blends instead of snapping.
       set(0.94);
       // Hold the dip briefly so the press is felt, then release to 1 and
-      // let the same eased transition carry it home — one continuous curve
+      // let the same eased transition carry it home: one continuous curve
       // back to rest, no second animation, no break.
       const timer = setTimeout(() => {
         set(1);

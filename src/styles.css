@@ -74,7 +74,7 @@ body::before {
   -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 35%, black, transparent 95%);
 }
 
-/* Localized violet glow spots — not a full wash */
+/* Localized accent glow spots, not a full wash */
 body::after {
   content: "";
   position: fixed;
@@ -103,7 +103,7 @@ img { max-width: 100%; display: block; }
 /* Hide native cursor when custom cursor is on */
 body[data-cursor="on"] * { cursor: none !important; }
 
-/* ===== Custom cursor — futuristic HUD reticle ===== */
+/* ===== Custom cursor: futuristic HUD reticle ===== */
 .cursor-dot, .cursor-ring {
   position: fixed;
   top: 0; left: 0;
@@ -113,7 +113,7 @@ body[data-cursor="on"] * { cursor: none !important; }
   transition: opacity .2s ease;
 }
 
-/* Core: 3D holographic arrow pointer — tip anchored at hotspot (0,0) */
+/* Core: 3D holographic arrow pointer, tip anchored at hotspot (0,0) */
 .cursor-dot {
   width: 38px; height: 38px;
   will-change: transform;
@@ -268,7 +268,7 @@ body[data-cursor="off"] .cursor-ring { display: none; }
 
 
 /* =========================================================
-   Loader — orbital logo (ported)
+   Loader: orbital logo (ported)
    ========================================================= */
 .loader2 {
   position: fixed;
@@ -601,7 +601,7 @@ h1, h2, h3, h4 {
   position: relative;
   isolation: isolate;
 }
-/* Ambient background decoration — soft glow blooms behind hero content */
+/* Ambient background decoration: soft glow blooms behind hero content */
 .hero::before {
   content: "";
   position: absolute;
@@ -706,7 +706,7 @@ h1, h2, h3, h4 {
 }
 .hero-type-line {
   /* inline (not flex) so the caret sits on the SAME text baseline whether
-     the phrase is empty or full — its position never shifts at either end */
+     the phrase is empty or full; its position never shifts at either end */
   display: inline-block;
   white-space: nowrap;
   height: 100%;
@@ -717,7 +717,7 @@ h1, h2, h3, h4 {
 }
 /* Caret as an inline pseudo-element glued to the text run. Because it
    flows with the text it stays locked to the baseline and to the left
-   edge when empty — no jump on erase-to-empty or type-from-empty. */
+   edge when empty; no jump on erase-to-empty or type-from-empty. */
 .hero-type-line::after {
   content: "";
   display: inline-block;
@@ -1004,7 +1004,7 @@ h1, h2, h3, h4 {
   background: color-mix(in oklch, var(--accent) 12%, transparent) !important;
 }
 
-/* Section reveal — staggered slide-in on every entry */
+/* Section reveal: staggered slide-in on every entry */
 .reveal-anim .anim-left,
 .reveal-anim .anim-right,
 .reveal-anim .anim-up {
@@ -1163,7 +1163,7 @@ h1, h2, h3, h4 {
   box-shadow: 0 0 8px oklch(0.7 0.16 145);
 }
 
-/* ===== Skills — interactive orb panel (lives in Hero) ===== */
+/* ===== Skills: interactive orb panel (lives in Hero) ===== */
 .skill-panel {
   position: relative;
   background: color-mix(in oklch, var(--bg-2) 65%, transparent);
@@ -1245,7 +1245,7 @@ h1, h2, h3, h4 {
   50%      { opacity: 1; transform: scale(1.12); }
 }
 
-/* Orb grid — 2x2 */
+/* Orb grid: 2x2 */
 .skill-orbs {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1307,7 +1307,7 @@ h1, h2, h3, h4 {
   z-index: 4;
 }
 
-/* Click splash — particle burst at cursor point */
+/* Click splash: particle burst at cursor point */
 .skill-burst {
   position: absolute;
   width: 0; height: 0;
@@ -1461,7 +1461,7 @@ h1, h2, h3, h4 {
   color: var(--fg);
 }
 
-/* ===== Services — card grid ===== */
+/* ===== Services: card grid ===== */
 .services-head {
   margin-bottom: 56px;
 }
@@ -1489,34 +1489,80 @@ h1, h2, h3, h4 {
               background .15s ease,
               box-shadow .15s ease;
   isolation: isolate;
+  --rx: 0deg;
+  --ry: 0deg;
+}
+/* Rotating gradient border, only the 1px ring is visible through the mask */
+@property --service-ang {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
 .service-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--grad);
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--service-ang, 0deg),
+    transparent 0%, var(--accent) 14%, var(--accent-2) 28%, transparent 42%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
   opacity: 0;
-  transition: opacity .18s ease;
-  z-index: -1;
+  transition: opacity .25s ease;
+  animation: service-border-spin 3.2s linear infinite;
+  animation-play-state: paused;
+  z-index: 1;
+  pointer-events: none;
 }
-.service-card::after {
-  content: "";
+.service-card:hover::before { opacity: 1; animation-play-state: running; }
+@keyframes service-border-spin { to { --service-ang: 360deg; } }
+
+/* Spotlight that follows the cursor (position fed by JS via --mx/--my) */
+.service-card-spot {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 100% 0%, color-mix(in oklch, var(--accent) 25%, transparent), transparent 50%);
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 0%),
+    color-mix(in oklch, var(--spot-c, var(--accent)) 14%, transparent), transparent 70%);
   opacity: 0;
-  transition: opacity .15s ease;
+  transition: opacity .25s ease;
   z-index: -1;
+  pointer-events: none;
 }
+.service-card:hover .service-card-spot { opacity: 1; }
+
+/* Oversized outlined number behind the content */
+.service-card-ghost {
+  position: absolute;
+  top: -12px;
+  right: 4px;
+  font-family: var(--display);
+  font-size: clamp(72px, 8vw, 96px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in oklch, var(--accent) 18%, transparent);
+  opacity: .8;
+  z-index: -1;
+  pointer-events: none;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1),
+              -webkit-text-stroke-color .25s ease;
+}
+.service-card:hover .service-card-ghost {
+  transform: translateY(5px) scale(1.06);
+  -webkit-text-stroke-color: color-mix(in oklch, var(--accent) 42%, transparent);
+}
+
 .service-card:hover {
-  transform: translateY(-6px);
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(-6px);
   border-color: color-mix(in oklch, var(--accent) 45%, var(--line));
   box-shadow:
     0 24px 60px -20px color-mix(in oklch, var(--accent) 35%, transparent),
     0 0 0 1px color-mix(in oklch, var(--accent-2) 30%, transparent);
 }
-.service-card:hover::after { opacity: 1; }
 
 .service-card-num {
   font-family: var(--mono);
@@ -1529,6 +1575,7 @@ h1, h2, h3, h4 {
   color: transparent;
 }
 .service-card-icon {
+  position: relative;
   width: 56px; height: 56px;
   border-radius: 14px;
   background: var(--grad-soft);
@@ -1539,11 +1586,32 @@ h1, h2, h3, h4 {
   transition: transform .18s cubic-bezier(.2,.7,.2,1);
 }
 .service-card:hover .service-card-icon {
-  transform: rotate(-6deg) scale(1.06);
+  transform: rotate(-6deg) scale(1.1);
 }
-.service-card-icon span {
+.service-icon-emoji {
   display: block;
   filter: saturate(0.95);
+  animation: service-icon-float 4.5s ease-in-out infinite;
+  animation-delay: var(--float-d, 0s);
+}
+@keyframes service-icon-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.service-icon-ring {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid color-mix(in oklch, var(--accent) 70%, transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+.service-card:hover .service-icon-ring {
+  animation: service-ring-ping 1s ease-out infinite;
+}
+@keyframes service-ring-ping {
+  0% { opacity: .8; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.55); }
 }
 .service-card-name {
   font-family: var(--display);
@@ -1573,11 +1641,44 @@ h1, h2, h3, h4 {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: color-mix(in oklch, var(--bg) 50%, transparent);
-  transition: border-color .25s ease, color .25s ease, background .25s ease;
+  transition: border-color .25s ease, color .25s ease, background .25s ease,
+              transform .3s cubic-bezier(.2,.7,.2,1);
+  /* Stagger only the lift so tags ripple upward one after another */
+  transition-delay: 0s, 0s, 0s, calc(var(--ti, 0) * 45ms);
 }
 .service-card:hover .service-tag {
   border-color: color-mix(in oklch, var(--accent) 35%, var(--line));
   color: var(--fg);
+  transform: translateY(-3px);
+}
+
+.service-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+  padding-top: 14px;
+  border-top: 1px dashed color-mix(in oklch, var(--line) 80%, transparent);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.service-cta-arrow {
+  display: inline-block;
+  transition: transform .25s cubic-bezier(.2,.7,.2,1);
+}
+.service-card:hover .service-card-cta { color: var(--accent); }
+.service-card:hover .service-cta-arrow { transform: translateX(5px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card::before,
+  .service-icon-emoji,
+  .service-icon-ring { animation: none; }
 }
 
 /* Old row layout removed; keep stub to avoid orphan references in DOM */
@@ -2239,7 +2340,7 @@ h1, h2, h3, h4 {
   .scroll-top.is-visible { transform: none; }
 }
 
-/* Contact — Connect With Me card */
+/* Contact: Connect With Me card */
 .connect-card {
   width: 100%;
   max-width: 520px;

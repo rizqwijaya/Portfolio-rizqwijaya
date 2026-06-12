@@ -62,7 +62,7 @@ export default function Loader(props) {
       ref={wrapRef}
       onClick={skip}
       role="button"
-      aria-label="Loading — click to skip"
+      aria-label="Loading, click to skip"
     >
       <div className="ls-glow" />
       <div className="ls-ring ls-ring-1" />

@@ -68,7 +68,7 @@ export function useReveal(opts) {
   return ref;
 }
 
-/* Scrollspy — active section id by scroll position */
+/* Scrollspy: active section id by scroll position */
 export function useScrollSpy(ids) {
   const [active, setActive] = useState(ids[0]);
   useEffect(() => {
