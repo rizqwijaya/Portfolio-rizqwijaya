@@ -6,6 +6,21 @@ export default function Work(props) {
   const ref = useReveal({ repeat: true });
   const projects = [
     {
+      id: "commodifi",
+      name: "CommodiFi - Indonesia's Real-World Assets, On-Chain",
+      cat: "Web3 · RWA Tokenization · 2026",
+      tag: "Web3 RWA",
+      yr: "2026",
+      art: "rwa",
+      cover: "/assets/CommodiFi.jpg",
+      size: "large",
+      link: "https://commodifi.netlify.app/",
+      desc: "Indonesia's commodities, tokenized on-chain. A full-stack RWA protocol that brings four Indonesian commodity classes — gold, nickel, crude palm oil, and coal — on-chain as ERC-20 tokens, each backed by tracked reserves and a Chainlink-style price oracle. Users mint and redeem tokenized assets, watch their portfolio value update live against oracle prices, and explore per-asset price charts and reserves. Built end-to-end: audited-style Solidity vault and token contracts (47 Foundry tests, verified on Sepolia), a React + wagmi/viem dApp, and a Node indexer with a REST API serving live prices, balances, and on-chain activity.",
+      year: "2026",
+      tools: "Solidity · Foundry · React · Vite · wagmi · viem · Node · Ethereum Sepolia",
+      tags: ["RWA Tokenization", "Smart Contracts", "Price Oracle", "Mint & Redeem", "Indexer + REST API"],
+    },
+    {
       id: "equinoxfi",
       name: "EquinoxFi - DeFi Swap, Staking & Sell Platform",
       cat: "Web3 · DeFi · 2026",
@@ -13,7 +28,7 @@ export default function Work(props) {
       yr: "2026",
       art: "defi",
       cover: "/assets/EquinoxFi.jpg",
-      size: "large",
+      size: "med-r",
       link: "https://equinoxfi.vercel.app/",
       desc: "Swap easily, stake instantly. A decentralized exchange where users swap tokens, provide liquidity to pools, stake for yield, and track holdings in a portfolio view. Wallet onboarding via RainbowKit, on-chain interactions through Wagmi and Viem, with Uniswap-style AMM flows powered by Solidity smart contracts.",
       year: "2026",

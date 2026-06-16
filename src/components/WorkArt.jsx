@@ -169,6 +169,27 @@ export default function WorkArt(props) {
       </div>
     );
   }
+  if (kind === "rwa") {
+    return (
+      <div className="art-svg">
+        <svg
+          viewBox="0 0 200 120"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+        >
+          <rect x="48" y="74" width="104" height="14" rx="2" />
+          <rect x="58" y="56" width="84" height="14" rx="2" opacity="0.75" />
+          <rect x="68" y="38" width="64" height="14" rx="2" opacity="0.5" />
+          <polygon points="100,14 112,22 100,30 88,22" />
+          <line x1="100" y1="30" x2="100" y2="38" opacity="0.6" />
+          <circle cx="100" cy="81" r="3" fill="currentColor" stroke="none" />
+          <circle cx="100" cy="63" r="2.5" fill="currentColor" stroke="none" opacity="0.7" />
+          <line x1="36" y1="100" x2="164" y2="100" strokeDasharray="2 4" opacity="0.6" />
+        </svg>
+      </div>
+    );
+  }
   if (kind === "motion") {
     return (
       <div className="art-svg">
