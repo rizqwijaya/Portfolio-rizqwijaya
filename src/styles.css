@@ -2456,10 +2456,11 @@ h1, h2, h3, h4 {
 }
 .modal-title {
   font-family: var(--display);
-  font-size: 36px;
+  font-size: 26px;
   font-weight: 500;
   letter-spacing: -0.02em;
-  line-height: 1;
+  line-height: 1.15;
+  margin-top: 8px;
 }
 .modal-desc {
   font-size: 15px;
@@ -2501,8 +2502,80 @@ h1, h2, h3, h4 {
 }
 .modal-actions {
   display: flex;
-  gap: 10px;
-  margin-top: auto;
+  gap: 12px;
+  margin: 16px 0 18px;
+}
+.modal-actions .magnetic { will-change: transform; }
+/* The magnetic wrapper owns translate (set inline on mousemove). The btn must
+   NOT also translate or the two fight and jitter. So the btn lifts via scale
+   only -> different node from the wrapper, GPU-composited, perfectly smooth. */
+.modal-actions .btn {
+  padding: 12px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transform: scale(1);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1),
+    box-shadow .35s cubic-bezier(.2,.7,.2,1),
+    filter .35s cubic-bezier(.2,.7,.2,1),
+    border-color .35s cubic-bezier(.2,.7,.2,1);
+}
+/* Primary: gradient + sheen sweep + glow */
+.modal-actions .btn.primary {
+  box-shadow: 0 6px 20px -8px color-mix(in oklch, var(--accent) 70%, transparent);
+}
+.modal-actions .btn.primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    color-mix(in oklch, white 65%, transparent) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform .7s cubic-bezier(.2,.7,.2,1);
+  will-change: transform;
+}
+.modal-actions .btn.primary:hover {
+  transform: scale(1.025);
+  filter: brightness(1.08);
+  box-shadow: 0 14px 32px -8px color-mix(in oklch, var(--accent) 85%, transparent);
+}
+.modal-actions .btn.primary:active { transform: scale(.99); }
+.modal-actions .btn.primary:hover::before { transform: translateX(120%); }
+/* Ghost: accent-tinted fill fades in (opacity = no geometric snap) */
+.modal-actions .btn.ghost {
+  border-color: color-mix(in oklch, var(--accent) 45%, var(--line));
+}
+.modal-actions .btn.ghost::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in oklch, var(--accent) 16%, transparent);
+  opacity: 0;
+  transition: opacity .35s cubic-bezier(.2,.7,.2,1);
+  will-change: opacity;
+}
+.modal-actions .btn.ghost:hover {
+  transform: scale(1.025);
+  border-color: color-mix(in oklch, var(--accent) 75%, transparent);
+  box-shadow: 0 12px 28px -12px color-mix(in oklch, var(--accent) 60%, transparent);
+}
+.modal-actions .btn.ghost:active { transform: scale(.99); }
+.modal-actions .btn.ghost:hover::before { opacity: 1; }
+/* Arrow kick */
+.modal-actions .btn:hover .btn-arrow { transform: translateX(6px); }
+@media (prefers-reduced-motion: reduce) {
+  .modal-actions .btn,
+  .modal-actions .btn::before,
+  .modal-actions .btn-arrow { transition: none; }
+  .modal-actions .btn:hover { transform: none; }
 }
 
 /* Responsive */

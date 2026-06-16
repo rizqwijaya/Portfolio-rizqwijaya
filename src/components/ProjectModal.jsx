@@ -34,7 +34,28 @@ export default function ProjectModal(props) {
         {project && (
           <Fragment>
             <div className="modal-art">
-              {project.cover ? (
+              {project.video ? (
+                <Fragment>
+                  {project.cover && (
+                    <img
+                      className="modal-art-cover-bg"
+                      src={project.cover}
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  )}
+                  <video
+                    className="modal-art-cover"
+                    src={project.video}
+                    poster={project.cover}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                  />
+                </Fragment>
+              ) : project.cover ? (
                 <Fragment>
                   <img
                     className="modal-art-cover-bg"
@@ -61,32 +82,6 @@ export default function ProjectModal(props) {
             <div className="modal-body">
               <div className="modal-cat">{project.cat}</div>
               <h3 className="modal-title">{project.name}</h3>
-              <p className="modal-desc">{project.desc}</p>
-              <div className="modal-tags">
-                {project.tags.map((t) => (
-                  <span key={t} className="modal-tag">
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <div className="modal-meta">
-                <div>
-                  <div className="modal-meta-item-label">Year</div>
-                  <div className="modal-meta-item-val">{project.year}</div>
-                </div>
-                {project.duration && (
-                  <div>
-                    <div className="modal-meta-item-label">Duration</div>
-                    <div className="modal-meta-item-val">
-                      {project.duration}
-                    </div>
-                  </div>
-                )}
-                <div style={{ gridColumn: "1 / -1" }}>
-                  <div className="modal-meta-item-label">Tools</div>
-                  <div className="modal-meta-item-val">{project.tools}</div>
-                </div>
-              </div>
               <div className="modal-actions">
                 {project.link && (
                   <MagneticButton strength={0.2}>
@@ -118,6 +113,32 @@ export default function ProjectModal(props) {
                     <span className="btn-arrow">→</span>
                   </a>
                 </MagneticButton>
+              </div>
+              <p className="modal-desc">{project.desc}</p>
+              <div className="modal-tags">
+                {project.tags.map((t) => (
+                  <span key={t} className="modal-tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <div className="modal-meta">
+                <div>
+                  <div className="modal-meta-item-label">Year</div>
+                  <div className="modal-meta-item-val">{project.year}</div>
+                </div>
+                {project.duration && (
+                  <div>
+                    <div className="modal-meta-item-label">Duration</div>
+                    <div className="modal-meta-item-val">
+                      {project.duration}
+                    </div>
+                  </div>
+                )}
+                <div style={{ gridColumn: "1 / -1" }}>
+                  <div className="modal-meta-item-label">Tools</div>
+                  <div className="modal-meta-item-val">{project.tools}</div>
+                </div>
               </div>
             </div>
           </Fragment>
