@@ -49,10 +49,10 @@ export default function Services() {
     },
     {
       num: "04",
-      icon: "🖥️",
-      name: "SAP Basis Consulting",
-      desc: "Installation, upgrade, migration, performance tuning, monitoring, and DR for SAP NetWeaver, S/4HANA, and HANA database landscapes.",
-      tags: ["Install", "Migration", "HANA", "Tuning", "Monitoring"],
+      icon: "🛡️",
+      name: "Smart Contract Auditing",
+      desc: "Security reviews of Solidity contracts: reentrancy, access control, oracle and arithmetic risks, with gas optimization and a Foundry test suite to prove fixes hold.",
+      tags: ["Security", "Foundry", "Gas Optimization", "Reentrancy", "Testing"],
     },
   ];
   return (
@@ -61,7 +61,7 @@ export default function Services() {
         <div className="services-head">
           <div>
             <div className="section-label anim-left" style={{ "--d": "60ms" }}>
-              <span className="section-num">02</span> What I Do
+              <span className="section-num">03</span> What I Do
             </div>
             <h2 className="services-title anim-left" style={{ "--d": "220ms" }}>
               Services &amp; <span className="italic-accent">capabilities.</span>

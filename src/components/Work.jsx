@@ -66,36 +66,6 @@ export default function Work(props) {
       tools: "React · Solidity · Wagmi · Viem · RainbowKit · Ethereum Sepolia",
       tags: ["DAO Governance", "On-chain Voting", "Vote Delegation", "Treasury"],
     },
-    {
-      id: "sap-migration",
-      name: "BRIFIRST - SAP Basis Operations & Administration",
-      cat: "SAP Basis · 2023–2024",
-      tag: "SAP S/4HANA",
-      yr: "2023–24",
-      art: "sap",
-      cover: "/assets/SAP Project BRIFIRST.png",
-      size: "large",
-      desc: "Handled day-to-day SAP Basis operations for the BRIFIRST landscape at Bank BRI, including user and authorization management, transport request handling, batch job monitoring, and deployment across development, QA, and production systems.",
-      year: "Nov 2023 – Nov 2024",
-      tools: "SAP S/4HANA · BMC Control-M · SAP Fiori · SAP HANA",
-      duration: "12 months",
-      tags: ["S/4HANA", "BMC Control-M", "SAP Fiori", "User Management"],
-    },
-    {
-      id: "sap-basis-consultant",
-      name: "PT SISI - SAP Basis Consultant",
-      cat: "SAP Basis · Enterprise Infrastructure · 2025",
-      tag: "SAP ECC",
-      yr: "2025",
-      art: "motion",
-      cover: "/assets/SAP ECC PT SISI.jpg",
-      size: "med-r",
-      desc: "Comprehensive end-to-end SAP Basis Consulting and system management to ensure high availability, security, and optimal performance of enterprise SAP environments (ERP, ECC, and Oracle).",
-      year: "Feb 2025 – May 2025",
-      tools: "SAP GUI · SAP ECC · Oracle Database",
-      duration: "4 months",
-      tags: ["Basis Consulting", "System Monitoring", "Landscape Config"],
-    },
   ];
   return (
     <section id="work" className="section">
@@ -103,7 +73,7 @@ export default function Work(props) {
         <div className="work-head">
           <div>
             <div className="section-label anim-left" style={{ "--d": "60ms" }}>
-              <span className="section-num">03</span> Selected Work
+              <span className="section-num">02</span> Selected Work
             </div>
             <h2 className="work-title anim-left" style={{ "--d": "220ms" }}>
               Things I've <span className="italic-accent">shipped.</span>

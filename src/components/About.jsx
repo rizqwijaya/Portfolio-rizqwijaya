@@ -22,11 +22,11 @@ export default function About() {
               <span className="about-name anim-left" style={{ "--d": "380ms" }}>Rizq Wijaya</span>
             </h2>
             <p className="about-body anim-left" style={{ "--d": "540ms" }}>
-              I'm a <strong>Web3-focused engineer</strong>. By day, I ensure{" "}
-              <strong>SAP enterprise systems</strong> are stable. By heart, I
-              build the decentralized web through{" "}
+              I'm a <strong>Web3-focused engineer</strong>. I build the
+              decentralized web through{" "}
               <strong>blockchain & smart contract development</strong> and{" "}
-              <strong>Web3 applications</strong>.
+              <strong>Web3 applications</strong>, from on-chain protocols to
+              the dApps people actually use.
             </p>
             <div className="about-actions anim-up" style={{ marginTop: 24, "--d": "700ms" }}>
               <MagneticButton strength={0.2}>
@@ -68,7 +68,7 @@ export default function About() {
               </div>
               <div className="about-stat">
                 <div className="about-stat-num">
-                  15<sup>+</sup>
+                  7<sup>+</sup>
                 </div>
                 <div className="about-stat-label">Projects Shipped</div>
               </div>

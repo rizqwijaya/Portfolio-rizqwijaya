@@ -33,8 +33,8 @@ export default function App() {
         <Hero loading={loading} />
         <Marquee />
         <About />
-        <Services />
         <Work onOpen={setProject} />
+        <Services />
         <Contact />
         <Footer />
         <ProjectModal

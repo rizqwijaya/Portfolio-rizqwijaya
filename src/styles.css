@@ -2035,13 +2035,6 @@ h1, h2, h3, h4 {
 }
 
 /* Work art styles */
-.art-sap {
-  background:
-    repeating-linear-gradient(0deg, color-mix(in oklch, var(--fg) 6%, transparent) 0 1px, transparent 1px 32px),
-    repeating-linear-gradient(90deg, color-mix(in oklch, var(--fg) 6%, transparent) 0 1px, transparent 1px 32px),
-    radial-gradient(circle at 30% 40%, oklch(0.4 0.1 240 / 0.4), transparent 50%),
-    linear-gradient(135deg, oklch(0.22 0.04 240), oklch(0.16 0.02 220));
-}
 .art-defi {
   background:
     repeating-linear-gradient(0deg, color-mix(in oklch, var(--fg) 5%, transparent) 0 1px, transparent 1px 28px),

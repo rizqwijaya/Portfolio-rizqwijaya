@@ -6,7 +6,7 @@ export default function Footer() {
   };
   return (
     <footer className="footer">
-      <div className="footer-kicker">Have an idea, on-chain or on SAP?</div>
+      <div className="footer-kicker">Have an idea to bring on-chain?</div>
       <a
         className="footer-big"
         href="#contact"
@@ -21,7 +21,7 @@ export default function Footer() {
         <div>© 2026 Rizq Wijaya. All rights reserved.</div>
         <div className="footer-status">
           <span className="footer-status-dot" aria-hidden="true" />
-          Open for Web3 &amp; SAP work
+          Open for Web3 work
         </div>
         <div>Jakarta, Indonesia · v2.0</div>
       </div>

@@ -1,29 +1,5 @@
 export default function WorkArt(props) {
   const kind = props.kind;
-  if (kind === "sap") {
-    return (
-      <div className="art-svg">
-        <svg
-          viewBox="0 0 200 120"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-        >
-          <rect x="10" y="20" width="80" height="80" rx="4" />
-          <rect x="110" y="20" width="80" height="80" rx="4" />
-          <line x1="90" y1="60" x2="110" y2="60" />
-          <circle cx="50" cy="50" r="3" fill="currentColor" />
-          <circle cx="50" cy="70" r="3" fill="currentColor" />
-          <line x1="60" y1="50" x2="80" y2="50" />
-          <line x1="60" y1="70" x2="80" y2="70" />
-          <circle cx="150" cy="50" r="3" fill="currentColor" />
-          <circle cx="150" cy="70" r="3" fill="currentColor" />
-          <line x1="120" y1="50" x2="140" y2="50" />
-          <line x1="120" y1="70" x2="140" y2="70" />
-        </svg>
-      </div>
-    );
-  }
   if (kind === "video") {
     return (
       <div className="art-svg">

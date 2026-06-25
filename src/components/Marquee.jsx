@@ -5,7 +5,7 @@ export default function Marquee() {
     { name: "Blockchain Development", sub: "EVM · Layer 2 · DeFi" },
     { name: "Smart Contract Development", sub: "Solidity · Hardhat · Security" },
     { name: "Web3 Development", sub: "dApps · Ethers.js · Wagmi" },
-    { name: "SAP Basis", sub: "User Management · Database · Troubleshooting" },
+    { name: "Smart Contract Auditing", sub: "Security · Foundry · Gas Optimization" },
   ];
   const loop = items.concat(items, items);
   return (

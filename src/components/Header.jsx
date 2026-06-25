@@ -2,12 +2,12 @@ import { useScrollSpy } from "../hooks.js";
 import MagneticButton from "./MagneticButton.jsx";
 
 export default function Header() {
-  const active = useScrollSpy(["home", "about", "services", "work", "contact"]);
+  const active = useScrollSpy(["home", "about", "work", "services", "contact"]);
   const links = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
-    { id: "services", label: "Services" },
     { id: "work", label: "Work" },
+    { id: "services", label: "Services" },
     { id: "contact", label: "Contact" },
   ];
   const onJump = (e, id) => {
